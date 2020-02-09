@@ -1,1 +1,3 @@
 ch04-model-interface/input
+.mypy_cache
+*__pycache__/

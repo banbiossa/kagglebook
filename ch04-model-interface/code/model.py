@@ -5,11 +5,10 @@ from typing import Optional
 
 
 class Model(metaclass=ABCMeta):
-
     def __init__(self, run_fold_name: str, params: dict) -> None:
         """コンストラクタ
 
-        :param run_fold_name: ランの名前とfoldの番号を組み合わせた名前
+        :aaram run_fold_name: ランの名前とfoldの番号を組み合わせた名前
         :param params: ハイパーパラメータ
         """
         self.run_fold_name = run_fold_name
@@ -17,9 +16,13 @@ class Model(metaclass=ABCMeta):
         self.model = None
 
     @abstractmethod
-    def train(self, tr_x: pd.DataFrame, tr_y: pd.Series,
-              va_x: Optional[pd.DataFrame] = None,
-              va_y: Optional[pd.Series] = None) -> None:
+    def train(
+        self,
+        tr_x: pd.DataFrame,
+        tr_y: pd.Series,
+        va_x: Optional[pd.DataFrame] = None,
+        va_y: Optional[pd.Series] = None,
+    ) -> None:
         """モデルの学習を行い、学習済のモデルを保存する
 
         :param tr_x: 学習データの特徴量
